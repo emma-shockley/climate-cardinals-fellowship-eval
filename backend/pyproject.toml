@@ -1,0 +1,30 @@
+[project]
+name = "fellowship-eval"
+version = "0.1.0"
+description = "Climate Cardinals Fellowship AI Evaluation Platform"
+requires-python = ">=3.9"
+dependencies = [
+    "pydantic>=2.0",
+    "openpyxl>=3.1",
+    "anthropic",
+    "google-auth",
+    "google-api-python-client",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

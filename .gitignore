@@ -1,0 +1,33 @@
+# Credentials — this project has no legitimate JSON files, so block all of
+# them rather than trying to guess at credential filenames.
+*.json
+.env
+.env.*
+
+# Applicant data (contains personal information)
+*.xlsx
+~$*.xlsx
+!backend/tests/parity/fixtures/*.xlsx
+
+# Local state / logs / generated output
+backend/.state/
+*.sqlite3
+*.log
+*.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# Never publish this
+future-enhancements/
+
+# macOS / local tooling
+.DS_Store
+.claude/
+.git-OLD-DO-NOT-PUBLISH/
