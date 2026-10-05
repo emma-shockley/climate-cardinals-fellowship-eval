@@ -112,8 +112,3 @@ weighted-score math against the spreadsheet's own cached formula results.
 
 The `docs/` folder has the fuller design writeup — start with
 [docs/00-executive-summary.md](docs/00-executive-summary.md), which links to the rest.
-
-## License
-
-No license is included yet — add one here before treating this code as free for others
-to reuse.
