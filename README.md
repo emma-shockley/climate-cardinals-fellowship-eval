@@ -23,19 +23,22 @@ to change.
   (safe to re-run after an interruption).
 
 ## How it's built
+
+```
 backend/
-├── evaluate_and_upload.py # CLI entry point — wires everything together
+├── evaluate_and_upload.py       # CLI entry point — wires everything together
 └── src/fellowship_eval/
-├── domain/ # Pure logic, no I/O
-│ ├── rubric.py # criteria, weights, weighted-score formula
-│ └── ranking.py # decision-tier logic (not called by the live
-│ # pipeline today — the Sheet's own formulas do
-│ # this; kept here tested, for anyone who wants it)
-│ └── ports.py # the RubricEvaluator interface adapters implement
-└── adapters/
-├── data/ # Loads & filters applications from the xlsx
-├── llm/ # Claude integration (prompting, caching, retries)
-└── sheets/ # Reads the rubric from, and writes scores to, Sheets
+    ├── domain/                  # Pure logic, no I/O
+    │   ├── rubric.py            # criteria, weights, weighted-score formula
+    │   ├── ranking.py           # decision-tier logic (not called by the live
+    │   │                        # pipeline today — the Sheet's own formulas do
+    │   │                        # this; kept here tested, for anyone who wants it)
+    │   └── ports.py             # the RubricEvaluator interface adapters implement
+    └── adapters/
+        ├── data/                # Loads & filters applications from the xlsx
+        ├── llm/                 # Claude integration (prompting, caching, retries)
+        └── sheets/              # Reads the rubric from, and writes scores to, Sheets
+```
 
 There's no database, API server, or admin UI — just the two layers above plus the CLI
 script. See `docs/01-technical-design.md` and `docs/02-ai-evaluation-pipeline.md` for the
